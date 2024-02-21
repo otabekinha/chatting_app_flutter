@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roll_dice/auth/login_or_register.dart';
 import 'package:roll_dice/pages/login_page.dart';
 import 'package:roll_dice/pages/register_page.dart';
 import 'package:roll_dice/themes/light_dark_mode.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RegisterPage(),
+      home: LoginOrRegister(),
       theme: lightMode,
     );
   }

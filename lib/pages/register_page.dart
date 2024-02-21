@@ -3,11 +3,12 @@ import 'package:roll_dice/components/my_button.dart';
 import 'package:roll_dice/components/my_textField.dart';
 
 class RegisterPage extends StatelessWidget {
+  final void Function()? onTap;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
-  RegisterPage({super.key});
+  RegisterPage({super.key, this.onTap});
 
   void register() {}
 
@@ -134,11 +135,14 @@ class RegisterPage extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(width: 5),
-                          Text(
-                            'LOGIN',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).colorScheme.primary,
+                          GestureDetector(
+                            onTap: onTap,
+                            child: Text(
+                              'LOGIN',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
                             ),
                           ),
                         ],
