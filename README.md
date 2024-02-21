@@ -1,4 +1,4 @@
-# roll_dice
+# Chatting App
 
 A new Flutter project.
 
