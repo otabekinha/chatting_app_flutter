@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:roll_dice/components/my_button.dart';
 import 'package:roll_dice/components/my_textField.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   LoginPage({super.key});
+
+  void login() {}
 
   @override
   Widget build(BuildContext context) {
@@ -107,6 +110,31 @@ class LoginPage extends StatelessWidget {
                         obsecureText: true,
                         controller: _passwordController,
                       ),
+                      const SizedBox(height: 30),
+                      MyButton(
+                        text: 'Login',
+                        onTap: login,
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Don\'t have account?',
+                            style: TextStyle(
+                              color: Theme.of(context).colorScheme.tertiary,
+                            ),
+                          ),
+                          const SizedBox(width: 5),
+                          Text(
+                            'CREATE NEW ACCOUNT',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),
