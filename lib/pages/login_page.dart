@@ -38,7 +38,7 @@ class LoginPage extends StatelessWidget {
             left: 0,
             right: 0,
             child: Image.network(
-              'https://images.unsplash.com/photo-1497091071254-cc9b2ba7c48a?q=80&w=2374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+              'https://images.unsplash.com/photo-1508615121316-fe792af62a63?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
               fit: BoxFit.cover,
               height: MediaQuery.of(context).size.height *
                   0.4, // Adjust height as needed

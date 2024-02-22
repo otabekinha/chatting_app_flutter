@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roll_dice/auth/auth_service.dart';
 import 'package:roll_dice/components/my_button.dart';
 import 'package:roll_dice/components/my_textField.dart';
 
@@ -10,7 +11,36 @@ class RegisterPage extends StatelessWidget {
       TextEditingController();
   RegisterPage({super.key, this.onTap});
 
-  void register() {}
+  void register(BuildContext context) {
+    final _auth = AuthService();
+
+    if (_passwordController.text == _confirmPasswordController.text) {
+      try {
+        _auth.signUpWithEmailPassword(
+          _emailController.text,
+          _passwordController.text,
+        );
+      } catch (e) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(
+              e.toString(),
+            ),
+          ),
+        );
+      }
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => const AlertDialog(
+          title: Text(
+            ('Passwords  don\'t match!'),
+          ),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +53,7 @@ class RegisterPage extends StatelessWidget {
             left: 0,
             right: 0,
             child: Image.network(
-              'https://images.unsplash.com/photo-1497091071254-cc9b2ba7c48a?q=80&w=2374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+              'https://images.unsplash.com/photo-1508615121316-fe792af62a63?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
               fit: BoxFit.cover,
               height: MediaQuery.of(context).size.height *
                   0.4, // Adjust height as needed
@@ -122,7 +152,7 @@ class RegisterPage extends StatelessWidget {
                       const SizedBox(height: 30),
                       MyButton(
                         text: 'Register',
-                        onTap: register,
+                        onTap: () => register(context),
                       ),
                       const SizedBox(height: 20),
                       Row(
