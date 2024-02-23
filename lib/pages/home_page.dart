@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roll_dice/auth/auth_service.dart';
+import 'package:roll_dice/components/my_drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,16 +14,17 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: const Text('Home'),
         actions: [
           IconButton(
             onPressed: logout,
-            icon: Icon(
+            icon: const Icon(
               Icons.logout,
             ),
           ),
         ],
       ),
+      drawer: const MyDrawer(),
     );
   }
 }
